@@ -1,0 +1,7 @@
+.project
+.classpath
+.settings/
+.checkstyle
+.metadata/
+WebRoot/logs/
+WebRoot/WEB-INF/lib/
