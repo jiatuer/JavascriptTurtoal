@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>callback.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+<script type="text/javascript">
+	function multiplyByTwo(a, b, c) {
+		var i, ar = [];
+		for (i = 0; i < 3; i++) {
+			ar[i] = arguments[i] * 2;
+		}
+		return ar;
+	}
+
+	function addOne(a) {
+		return a + 1;
+	}
+	
+	var myarr = [];
+	marr = multiplyByTwo(10 ,20 ,30);
+	alert(marr);
+	
+	for (var i = 0; i < 3; i++){
+		marr[i] = addOne(marr[i]);
+	}
+</script>
+
+
+<script type="text/javascript">
+	//回调函数，回调函数参与进来直接操作数据
+	function multiplyByTwo(a, b, c, callback) {
+		var i, ar = [];
+		for (i = 0; i < 3; i++) {
+			ar[i] = callback(arguments[i] * 2);
+		}
+		return ar;
+	}
+
+	function addOne(a) {
+		return a + 1;
+	}
+	
+	var myarr = [];
+	marr = multiplyByTwo(10 ,20 ,30, addOne);
+</script>
+
+<script type="text/javascript">
+	// 参数中直接时候用匿名函数，少个全局变量，更简洁些
+	function multiplyByTwo(a, b, c, callback) {
+		var i, ar = [];
+		for (i = 0; i < 3; i++) {
+			ar[i] = callback(arguments[i] * 2);
+		}
+		return ar;
+	}
+	
+	var myarr = [];
+	marr = multiplyByTwo(10 ,20 ,30, function(a){return a + 1;});
+</script>
+
+</head>
+
+<body>
+	This is my HTML page.
+	<br>
+</body>
+</html>
